@@ -16,4 +16,7 @@ require 'faker'
         technology.categories << category
         category.resources << resource
     end
+    secondary_category = Category.create(name: Faker::Color.color_name)
+    technology.categories << secondary_category
+    resource.categories << secondary_category
 end
