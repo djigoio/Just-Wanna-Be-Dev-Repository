@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
-
+<% if current_user %>
+    <%=current_user.email%>
+    <%= link_to "Logout", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true } %>
+<% else %>
+    <%= link_to "Sign In", new_user_session_path %>
+    <%= link_to "Sign Up", new_user_registration_path %>
+<% end %> 
 <h1>Technologies</h1>
 
 <table>
@@ -11,13 +17,7 @@
 
   <tbody>
     <% @technologies.each do |technology| %>
-    <h2><%= technology.name%></h2>
-        <% technology.categories.each do |category| %>
-          <h3><%= category.name%></h3>
-          <% category.resources.each do |resource| %>
-            <h4><%= resource.title %></h4>
-          <% end %>
-        <% end %>
+    <h2><%= link_to technology.name, technology %><h2>
       <tr>
         <td><%= link_to 'Show', technology %></td>
         <td><%= link_to 'Edit', edit_technology_path(technology) %></td>

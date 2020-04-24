@@ -1,4 +1,7 @@
 <p id="notice"><%= notice %></p>
-<%= @technology.name%>
+<h2><%= @technology.name%><h2>
+    <% @technology.categories.each do |category| %>
+        <h3><%=link_to category.name, category%><h3>
+    <% end %>
 <%= link_to 'Edit', edit_technology_path(@technology) %> |
 <%= link_to 'Back', technologies_path %>
