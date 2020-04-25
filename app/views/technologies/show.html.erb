@@ -1,7 +1,13 @@
 <p id="notice"><%= notice %></p>
-<h2><%= @technology.name%><h2>
-    <% @technology.categories.each do |category| %>
-        <h3><%=link_to category.name, category%><h3>
-    <% end %>
-<%= link_to 'Edit', edit_technology_path(@technology) %> |
-<%= link_to 'Back', technologies_path %>
+
+
+<h1 class="generic--title">Categories</h1>
+<div class="generic--search"> <input type="text"></div>
+
+<div class="generic--grid">
+  <% @technology.categories.each do |category| %>
+    <%= render category %>
+  <% end %>
+</div>
+
+<%= link_to 'New Category', new_category_path %>

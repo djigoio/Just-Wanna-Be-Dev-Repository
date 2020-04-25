@@ -1,27 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Categories</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<h1 class="generic--title">Categories</h1>
+<div class="generic--search"> <input type="text"></div>
 
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<div class="categories">
+  <% @categories.each do |category| %>
+    <%= render category %>
+  <% end %>
+</div>
 
 <%= link_to 'New Category', new_category_path %>
