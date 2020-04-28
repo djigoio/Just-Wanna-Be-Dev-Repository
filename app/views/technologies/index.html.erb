@@ -9,6 +9,7 @@
 <h1 class="generic--title">Technologies</h1>
 <div class="generic--search"> <input type="text"></div>
 
+<%= link_to 'New Technology', new_technology_path %>
 
 <div class="generic--grid">
   <% @technologies.each do |technology| %>
@@ -16,6 +17,3 @@
   <% end %>
 </div>
 
-<% if current_user %>
-  <%= link_to 'New Technology', new_technology_path %>
-<% end %> 

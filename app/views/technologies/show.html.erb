@@ -6,6 +6,8 @@
 
 <div class="generic--grid">
   <% @technology.categories.each do |category| %>
+  <p>Technology: <%=category.technology.name%> </p>
+
     <%= render category %>
   <% end %>
 </div>

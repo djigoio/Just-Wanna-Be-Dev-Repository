@@ -6,8 +6,9 @@
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
 
-<div class="resources">
-  <% @category.resources.each do |resource| %>
-    <%= link_to resource.title, resource.resource_url %>
-  <% end %>
-</div>
+<h3> <%= @category.name %> resources: <h3>
+<% @category.resources.each do |resource|%>
+  <p> <%= link_to resource.title, resource.resource_url %> </p>
+  <p> <%= resource.description %> </p>
+<% end %>
+

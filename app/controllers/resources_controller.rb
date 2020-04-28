@@ -25,6 +25,7 @@ class ResourcesController < ApplicationController
   # POST /resources.json
   def create
     @resource = Resource.new(resource_params)
+    add_resource_to_category
 
     respond_to do |format|
       if @resource.save
@@ -71,4 +72,13 @@ class ResourcesController < ApplicationController
     def resource_params
       params.require(:resource).permit(:title, :description, :resource_url, :category_id)
     end
+
+    def add_resource_to_category
+      category_id = params[:resource][:category_id]
+      if (category_id)
+        category = Category.find(category_id)
+        category.resources << @resource
+      end
+    end
+
 end

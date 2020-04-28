@@ -1,8 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<% @resource.categories.each do |category| %>
-  <%= category.name%>
-<% end %>
+<h2>Categories</h2>
+<ul>   
+  <% @resource.categories.each do |category| %>
+    <li><%= category.name%></li>
+  <% end %>
+</ul>
 
 <p>
   <strong>Title:</strong>
