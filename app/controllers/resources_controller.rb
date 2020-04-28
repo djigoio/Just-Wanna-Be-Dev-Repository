@@ -74,9 +74,9 @@ class ResourcesController < ApplicationController
     end
 
     def add_resource_to_category
-      category_id = params[:resource][:category_id]
-      if (category_id)
-        category = Category.find(category_id)
+      category_name = params[:resource][:category_name]
+      if (category_name)
+        category = Category.find_by(name: category_name)
         category.resources << @resource
       end
     end
