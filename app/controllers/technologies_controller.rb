@@ -69,6 +69,6 @@ class TechnologiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def technology_params
-      params.fetch(:technology, {})
+      params.require(:technology).permit(:name, :description)
     end
 end

@@ -14,6 +14,7 @@
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
+    <%= form.select :technology_id, Technology.all.collect { |t| [ t.name, t.id ] } %>
   </div>
 
   <div class="actions">
